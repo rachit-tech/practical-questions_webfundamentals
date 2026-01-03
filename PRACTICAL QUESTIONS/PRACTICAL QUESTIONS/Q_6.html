@@ -1,0 +1,59 @@
+<!-- 6.	Write a program that calculates the ticket price based on age with the following conditions: age below 12 pay a ticket price of 5, age below 18 pay a ticket price of 10, 
+ age below 60 pay a ticket price of 20, age over 60 play a ticket price of 15. -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Price Calculator</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #333; margin-bottom: 20px; }
+        input[type="number"] { padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; width: 100%; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Price Calculator</h1>
+        <label for="ageInput">Enter your age:</label>
+        <input type="number" id="ageInput" min="0" placeholder="e.g., 25">
+        <button onclick="calculatePrice()">Calculate Price</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            // Get the age input value and convert to integer
+            const age = parseInt(document.getElementById('ageInput').value);
+            let price = 0; // Initialize price
+
+            // Check for valid age input
+            if (isNaN(age) || age < 0) {
+                document.getElementById('result').textContent = "Please enter a valid age.";
+                document.getElementById('result').style.color = "red";
+                return; // Stop execution if invalid
+            }
+
+            // Apply pricing rules
+            if (age < 12) {
+                price = 5; // Children under 12
+            } else if (age < 18) {
+                price = 10; // Ages 12 to 17
+            } else if (age < 60) {
+                price = 20; // Ages 18 to 59
+            } else { // age >= 60
+                price = 15; // Seniors 60 and over (discounted)
+            }
+
+            // Display the result
+            document.getElementById('result').textContent = `Your ticket price is: $${price}`;
+            document.getElementById('result').style.color = "#28a745"; // Green color for success
+        }
+    </script>
+</body>
+</html>

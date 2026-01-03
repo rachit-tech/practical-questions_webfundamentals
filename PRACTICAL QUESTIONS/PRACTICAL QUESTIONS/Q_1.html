@@ -1,0 +1,118 @@
+<!-- 1.	Even or Odd: Write a program that takes a number 
+ as input and prints whether it is even or odd. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+    <style> body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+input[type="number"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.even {
+    color: #28a745; /* Green for even */
+}
+
+.odd {
+    color: #dc3545; /* Red for odd */
+}
+
+.error {
+    color: #ffc107; /* Yellow/Orange for error */
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Even or Odd Checker</h1>
+        <p>Enter a number to find out if it's even or odd.</p>
+        
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="checkEvenOdd()">Check</button>
+        
+        <p id="result"></p>
+    </div>
+
+    <script> function checkEvenOdd() {
+    const inputElement = document.getElementById('numberInput');
+    const resultElement = document.getElementById('result');
+
+    // Get and parse input
+    const value = inputElement.value.trim();
+    const number = parseInt(value, 10);
+
+    // Clear previous results
+    resultElement.textContent = '';
+    resultElement.className = '';
+
+    // Validate input
+    if (value === '' || isNaN(number)) {
+        resultElement.textContent = 'Please enter a valid number.';
+        resultElement.className = 'error';
+        return;
+    }
+
+    // Check even or odd
+    if (number % 2 === 0) {
+        resultElement.textContent = `The number ${number} is EVEN.`;
+        resultElement.className = 'even';
+    } else {
+        resultElement.textContent = `The number ${number} is ODD.`;
+        resultElement.className = 'odd';
+    }
+}
+</script>
+</body>
+</html>

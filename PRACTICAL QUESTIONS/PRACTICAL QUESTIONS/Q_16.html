@@ -1,0 +1,61 @@
+Q_16.html
+<!-- 	Print Numbers: Use a for loop to print numbers from 1 to 10. -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Numbers 1 to 10</title>
+    <style>
+        /* CSS for styling the output */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        #output {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #007BFF;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Numbers from 1 to 10:</h2>
+        <div id="output">
+            <!-- Numbers will be printed here by the JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript using a for loop
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const outputDiv = document.getElementById('output');
+            let resultHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                resultHTML += `<div>Number: ${i}</div>`;
+            }
+
+            outputDiv.innerHTML = resultHTML;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- Write a JavaScript program that iterates integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz".
+  For numbers multiples of both three and five print "FizzBuzz".--->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz Program</title>
+    <style> body {
+    font-family: monospace;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+#output-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    margin: 5px 0;
+    padding: 2px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.fizzbuzz { color: purple; font-weight: bold; }
+.fizz { color: green; }
+.buzz { color: orange; }
+.number { color: black; }
+</style>
+</head>
+<body>
+    <h1>FizzBuzz Output (1 to 100)</h1>
+    <div id="output-container">
+        <!-- JavaScript will insert the results here -->
+    </div>
+
+    <script> // Get the container where the output will be displayed
+const outputContainer = document.getElementById('output-container');
+
+// Loop through numbers from 1 to 100
+for (let i = 1; i <= 100; i++) {
+    let output = '';
+    let className = 'number';
+
+    // Check if the number is a multiple of both 3 and 5
+    if (i % 3 === 0 && i % 5 === 0) {
+        output = 'FizzBuzz';
+        className = 'fizzbuzz';
+    } 
+    // Check if the number is a multiple of 3 only
+    else if (i % 3 === 0) {
+        output = 'Fizz';
+        className = 'fizz';
+    } 
+    // Check if the number is a multiple of 5 only
+    else if (i % 5 === 0) {
+        output = 'Buzz';
+        className = 'buzz';
+    } 
+    // If none of the above, use the number itself
+    else {
+        output = i;
+    }
+
+    // Create a new paragraph element for each output item and add it to the page
+    const p = document.createElement('p');
+    p.textContent = output;
+    p.classList.add(className);
+    outputContainer.appendChild(p);
+}
+</script>
+</body>
+</html>

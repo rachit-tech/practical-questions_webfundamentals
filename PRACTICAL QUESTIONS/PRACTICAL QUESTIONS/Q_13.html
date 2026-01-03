@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Three Numbers</title>
+    
+</head>
+<body>
+
+    <h1>Sorting Numbers Example</h1>
+    <p>Click the button to run the sorting function and see the alert.</p>
+    <button onclick="sortThreeNumbers(25, 10, 42)">Sort Numbers (25, 10, 42)</button>
+
+    <!-- The JavaScript code from above goes here -->
+    <script>
+        function sortThreeNumbers(a, b, c) {
+            let num1 = a;
+            let num2 = b;
+            let num3 = c;
+            let result;
+
+            if (num1 <= num2 && num1 <= num3) {
+                if (num2 <= num3) {
+                    result = num1 + ", " + num2 + ", " + num3;
+                } else {
+                    result = num1 + ", " + num3 + ", " + num2;
+                }
+            } else if (num2 <= num1 && num2 <= num3) {
+                if (num1 <= num3) {
+                    result = num2 + ", " + num1 + ", " + num3;
+                } else {
+                    result = num2 + ", " + num3 + ", " + num1;
+                }
+            } else {
+                if (num1 <= num2) {
+                    result = num3 + ", " + num1 + ", " + num2;
+                } else {
+                    result = num3 + ", " + num2 + ", " + num1;
+                }
+            }
+
+            // Display the result using an alert box
+            alert("The sorted numbers are: " + result);
+        }
+    </script>
+
+</body>
+</html>

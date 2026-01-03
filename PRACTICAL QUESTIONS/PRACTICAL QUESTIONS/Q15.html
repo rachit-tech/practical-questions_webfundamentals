@@ -1,0 +1,45 @@
+/*Pyramid Pattern with Nested Loop
+Write a JavaScript program to construct the following pattern, using a nested for loop. */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid Pattern</title>
+    <style>
+        /* CSS to preserve whitespace and display the pattern correctly */
+        pre {
+            font-family: monospace;
+            white-space: pre;
+            text-align: center; /* Optional: centers the pyramid itself */
+        }
+    </style>
+</head>
+<body>
+    <pre id="pyramid-output"></pre>
+
+    <script>
+        function createPyramid(rows) {
+            let output = '';
+            // Outer loop runs for each row
+            for (let i = 1; i <= rows; i++) {
+                // Inner loop to add leading spaces
+                for (let j = 1; j <= rows - i; j++) {
+                    output += ' ';
+                }
+                // Inner loop to add stars and a space after each star
+                for (let k = 1; k <= i; k++) {
+                    output += '* ';
+                }
+                // Add a newline character to move to the next row
+                output += '\n';
+            }
+            return output;
+        }
+
+        // Generate a 5-row pyramid and display it in the <pre> element
+        const pyramidDisplay = document.getElementById('pyramid-output');
+        pyramidDisplay.textContent = createPyramid(5);
+    </script>
+</body>
+</html>

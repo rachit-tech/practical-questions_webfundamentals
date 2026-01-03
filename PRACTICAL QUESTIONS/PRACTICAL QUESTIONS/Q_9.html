@@ -1,0 +1,75 @@
+<!-- 9.	Write a program that greets the user based on the time of day. Display good morning, 
+ good afternoon or good evening based on the time of day when you run the code -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Program</title>
+    <style> body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.greeting-container {
+    padding: 30px 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#greeting-message {
+    color: #333;
+    font-size: 2em;
+}
+
+/* Optional: Different background colors based on time (JS implementation below) */
+.morning { background-color: #FFECB3; }
+.afternoon { background-color: #C8E6C9; }
+.evening { background-color: #BBDEFB; }
+</style>
+</head>
+<body>
+    <div class="greeting-container">
+        <!-- The greeting will be inserted here by JavaScript -->
+        <h1 id="greeting-message"></h1>
+    </div>
+    
+    <script > // Function to determine the time of day and return the appropriate greeting
+function getGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+    let greeting;
+
+    if (hour >= 5 && hour < 12) {
+        greeting = "Good Morning!";
+        document.body.classList.add('morning');
+    } else if (hour >= 12 && hour < 18) {
+        greeting = "Good Afternoon!";
+        document.body.classList.add('afternoon');
+    } else {
+        greeting = "Good Evening!";
+        document.body.classList.add('evening');
+    }
+    return greeting;
+}
+
+// Function to update the HTML element with the greeting
+function displayGreeting() {
+    const greetingElement = document.getElementById('greeting-message');
+    if (greetingElement) {
+        greetingElement.textContent = getGreeting();
+    }
+}
+
+// Call the display function when the script loads
+displayGreeting();
+</script>
+</body>
+</html>

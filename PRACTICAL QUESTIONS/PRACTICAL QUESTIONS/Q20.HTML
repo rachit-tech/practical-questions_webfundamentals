@@ -1,0 +1,28 @@
+<!-- Iterate over the properties of an object and print each key-value pair----> 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>For...In Loop Example</title>
+</head>
+<body>
+    <p>Check the console (F12) for the output.</p>
+
+    <script>
+        const car = {
+            brand: 'Toyota',
+            model: 'Corolla',
+            year: 2023
+        };
+
+        // Iterate over the object's properties
+        for (const key in car) {
+            // It is good practice to check if the property is the object's own property
+            if (Object.hasOwnProperty.call(car, key)) {
+                console.log(`${key}: ${car[key]}`);
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!--Sign of Product of Three NumbersWrite a JavaScript conditional statement to find the
+ sign of the product of three numbers. Display an alert box with the specified sign.
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign of Product</title>
+    <style> body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign of Product of Three Numbers</h1>
+        <p>Enter three numbers to find the sign of their product.</p>
+        
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <input type="number" id="num3" placeholder="Enter third number">
+        
+        <button onclick="findProductSign()">Check Sign</button>
+        
+        <p id="result">Result will appear here</p>
+    </div>
+
+    <script>function findProductSign() {
+    // Get values from the input fields and convert them to numbers
+    const num1 = Number(document.getElementById('num1').value);
+    const num2 = Number(document.getElementById('num2').value);
+    const num3 = Number(document.getElementById('num3').value);
+
+    // Get the result display element
+    const resultElement = document.getElementById('result');
+
+    // Check if any number is missing or invalid
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+        alert("Please enter valid numbers in all fields.");
+        resultElement.textContent = "Error: Invalid input.";
+        return;
+    }
+
+    let sign = '+';
+    
+    // If any number is zero, the product is zero.
+    if (num1 === 0 || num2 === 0 || num3 === 0) {
+        sign = '0';
+    } 
+    // Otherwise, check the count of negative numbers. 
+    // An odd number of negative factors results in a negative product.
+    else {
+        let negativeCount = 0;
+        if (num1 < 0) negativeCount++;
+        if (num2 < 0) negativeCount++;
+        if (num3 < 0) negativeCount++;
+
+        if (negativeCount % 2 === 0) {
+            sign = '+';
+        } else {
+            sign = '-';
+        }
+    }
+
+    // Display the result in an alert box and update the UI
+    alert("The sign of the product is: " + sign);
+    resultElement.textContent = "The sign of the product is: " + sign;
+}
+ </script>
+</body>
+</html>

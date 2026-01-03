@@ -1,0 +1,59 @@
+Q19.HTML
+<!-- Array Iteration (for...of): Iterate over an array of strings and print each element--->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Iteration (for.of)</title>
+<style> body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+#output-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+    width: 300px;
+}
+
+.language-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.language-item:last-child {
+    border-bottom: none;
+}
+</style>
+</head>
+<body>
+    <h1>Programming Languages</h1>
+    <div id="output-container">
+        <!-- The list items will be added here by JavaScript -->
+    </div>
+
+    <script > // 1. Define the array of strings
+const programmingLanguages = ['JavaScript', 'Python', 'Java', 'C++', 'Ruby', 'Go'];
+
+// 2. Get the HTML container element
+const outputContainer = document.getElementById('output-container');
+
+// 3. Iterate over the array using a for...of loop
+for (const language of programmingLanguages) {
+    // 4. Create a new div element for each language
+    const languageDiv = document.createElement('div');
+    
+    // 5. Add a CSS class for styling (optional)
+    languageDiv.classList.add('language-item');
+    
+    // 6. Set the text content of the new element to the current language
+    languageDiv.textContent = language;
+    
+    // 7. Append the new element to the container in the HTML
+    outputContainer.appendChild(languageDiv);
+}
+</script>
+</body>
+</html>

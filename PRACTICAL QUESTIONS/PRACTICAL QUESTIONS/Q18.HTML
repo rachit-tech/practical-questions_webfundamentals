@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <style> body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Factorial Calculator</h1>
+        <p>Enter a non-negative integer to calculate its factorial:</p>
+        <input type="number" id="numberInput" min="0" placeholder="Enter a number">
+        <button onclick="calculateFactorial()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script >function calculateFactorial() {
+    const numberInput = document.getElementById('numberInput');
+    const resultParagraph = document.getElementById('result');
+    const number = parseInt(numberInput.value);
+
+    // Validate the input
+    if (isNaN(number) || number < 0) {
+        resultParagraph.textContent = "Please enter a valid non-negative integer.";
+        return;
+    }
+
+    // Handle the special case for 0!
+    if (number === 0) {
+        resultParagraph.textContent = `The factorial of 0 is 1.`;
+        return;
+    }
+
+    // Calculate the factorial using a for loop
+    let factorial = 1;
+    for (let i = 1; i <= number; i++) {
+        factorial *= i; // This is equivalent to factorial = factorial * i;
+    }
+
+    resultParagraph.textContent = `The factorial of ${number} is ${factorial}.`;
+}
+ </script>
+</body>
+</html>
+

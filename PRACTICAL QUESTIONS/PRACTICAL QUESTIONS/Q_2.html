@@ -1,0 +1,80 @@
+<!-- 2.	Largest of Two Numbers: Write a program to find the largest of two given numbers.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest of Two Numbers</title>
+    <script> function checkEvenOdd() {
+    const inputElement = document.getElementById('numberInput');
+    const resultElement = document.getElementById('result');
+
+    // Get and parse input
+    const value = inputElement.value.trim();
+    const number = parseInt(value, 10);
+
+    // Clear previous results
+    resultElement.textContent = '';
+    resultElement.className = '';
+
+    // Validate input
+    if (value === '' || isNaN(number)) {
+        resultElement.textContent = 'Please enter a valid number.';
+        resultElement.className = 'error';
+        return;
+    }
+
+    // Check even or odd
+    if (number % 2 === 0) {
+        resultElement.textContent = `The number ${number} is EVEN.`;
+        resultElement.className = 'even';
+    } else {
+        resultElement.textContent = `The number ${number} is ODD.`;
+        resultElement.className = 'odd';
+    }
+}
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Find the Largest Number</h1>
+        <label for="num1">Enter Number 1:</label>
+        <input type="number" id="num1">
+        <label for="num2">Enter Number 2:</label>
+        <input type="number" id="num2">
+        <button onclick="findLargest()">Find Largest</button>
+        <p id="result"></p>
+    </div>
+    <script> function findLargest() {
+    // Get the values from the input fields and convert them to numbers
+    const num1 = Number(document.getElementById('num1').value);
+    const num2 = Number(document.getElementById('num2').value);
+    const resultElement = document.getElementById('result');
+
+    // Check if the inputs are valid numbers
+    if (isNaN(num1) || isNaN(num2)) {
+        resultElement.textContent = 'Please enter valid numbers.';
+        resultElement.style.color = '#dc3545';
+        return;
+    }
+
+    // Determine the largest number
+    let largest;
+    if (num1 > num2) {
+        largest = num1;
+    } else if (num2 > num1) {
+        largest = num2;
+    } else {
+        resultElement.textContent = `Both numbers are equal: ${num1}`;
+        resultElement.style.color = '#ffc107';
+        return;
+    }
+
+    // Display the result
+    resultElement.textContent = `The largest number is: ${largest}`;
+    resultElement.style.color = '#28a745';
+}
+</script>
+</body>
+</html>

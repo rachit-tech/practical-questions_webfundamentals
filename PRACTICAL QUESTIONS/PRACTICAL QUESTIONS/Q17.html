@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum 1 to 100</title>
+    <style> body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculating Sum (1 to 100)</h1>
+        <p>The sum of numbers from 1 to 100 is:</p>
+        <!-- The result will be displayed here -->
+        <div id="result"></div>
+    </div>
+
+    <script > // Initialize variables
+let sum = 0;
+let i = 1;
+
+// Use a while loop to iterate from 1 to 100
+while (i <= 100) {
+    sum += i; // Add the current number to the sum
+    i++;      // Increment the counter
+}
+
+// Display the result in the HTML document
+document.getElementById('result').textContent = `The sum is: ${sum}`;
+</script>
+</body>
+</html>

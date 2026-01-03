@@ -1,0 +1,109 @@
+<!-- Use a switch statement to print the name of the day based on a number (1 for Monday, 2 for Tuesday, etc.) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Name Finder</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+ </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find the Day Name</h1>
+        <p>Enter a number from 1 to 7 (1 for Monday, 7 for Sunday):</p>
+        <input type="number" id="dayNumber" min="1" max="7" placeholder="Enter a number (1-7)">
+        <button onclick="getDayName()">Get Day Name</button>
+        <p id="result">The day name will appear here.</p>
+    </div>
+
+    <script>function getDayName() {
+    // Get the input value and convert it to an integer
+    let dayNumberInput = document.getElementById('dayNumber');
+    let dayNumber = parseInt(dayNumberInput.value);
+    let resultElement = document.getElementById('result');
+    let dayName = '';
+
+    // Use a switch statement to determine the day name
+    switch (dayNumber) {
+        case 1:
+            dayName = 'Monday';
+            break;
+        case 2:
+            dayName = 'Tuesday';
+            break;
+        case 3:
+            dayName = 'Wednesday';
+            break;
+        case 4:
+            dayName = 'Thursday';
+            break;
+        case 5:
+            dayName = 'Friday';
+            break;
+        case 6:
+            dayName = 'Saturday';
+            break;
+        case 7:
+            dayName = 'Sunday';
+            break;
+        default:
+            dayName = 'Invalid input. Please enter a number between 1 and 7.';
+    }
+
+    // Display the result
+    resultElement.textContent = dayName;
+}
+ </script>
+</body>
+</html>

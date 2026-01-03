@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Practical Questions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Poppins, sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    padding:40px;
+    color:#fff;
+}
+
+/* Glass container */
+.container{
+    max-width:1100px;
+    margin:auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4);
+}
+
+h1{
+    text-align:center;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    opacity:.85;
+    margin-bottom:30px;
+}
+
+/* Search bar */
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:60%;
+    padding:14px 18px;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+/* Cards grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    text-decoration:none;
+    color:#fff;
+    padding:22px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition:all .35s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:translateX(-100%);
+    transition:.5s;
+}
+
+.card:hover::before{
+    transform:translateX(100%);
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card span{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    margin-top:40px;
+    font-size:14px;
+    opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>NAME - RACHIT DESHPANDE
+        ERP - RU-25-11069
+    </h1>
+    <p class="subtitle">Click any question to open in a new tab</p>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search question (eg: Q1, Q10...)" onkeyup="filterCards()">
+    </div>
+
+    <div class="grid" id="cards">
+
+        <!-- AUTO-LINK YOUR FILES HERE -->
+        <a class="card" href="PRACTICAL QUESTIONS/Q_1.html" target="_blank"><span>Q 1</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_2.html" target="_blank"><span>Q 2</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_3.html" target="_blank"><span>Q 3</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_4.html" target="_blank"><span>Q 4</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_5.html" target="_blank"><span>Q 5</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_6.html" target="_blank"><span>Q 6</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_7.html" target="_blank"><span>Q 7</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_8.html" target="_blank"><span>Q 8</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_9.html" target="_blank"><span>Q 9</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_10.html" target="_blank"><span>Q 10</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_11.html" target="_blank"><span>Q 11</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_12.html" target="_blank"><span>Q 12</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_13.html" target="_blank"><span>Q 13</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_14.html" target="_blank"><span>Q 14</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q_16.html" target="_blank"><span>Q 16</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q17.html" target="_blank"><span>Q 17</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q18.HTML" target="_blank"><span>Q 18</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q19.HTML" target="_blank"><span>Q 19</span></a>
+        <a class="card" href="PRACTICAL QUESTIONS/Q20.HTML" target="_blank"><span>Q 20</span></a>
+
+    </div>
+
+    <div class="footer">
+        Designed By Rachit Deshpande
+    </div>
+</div>
+
+<script>
+function filterCards(){
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!--  Use the ternary operator to check if a number is positive, negative, or zero-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sign Checker</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p#result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+ </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check Number Sign</h1>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="checkNumber()">Check</button>
+        <p id="result">Result will appear here</p>
+    </div>
+    <script> function checkNumber() {
+    const numInput = document.getElementById('numberInput');
+    const resultElement = document.getElementById('result');
+    const num = parseFloat(numInput.value);
+
+    if (isNaN(num)) {
+        resultElement.textContent = "Invalid input. Please enter a number.";
+        resultElement.style.color = "red";
+        return;
+    }
+
+    // Nested ternary operator to check positive, negative, or zero
+    const signStatus = 
+        num > 0 ? "Positive" : 
+        num < 0 ? "Negative" : 
+        "Zero";
+    // This is equivalent to:
+    // if (num > 0) {
+    //     signStatus = "Positive";
+    // } else if (num < 0) {
+    //     signStatus = "Negative";
+    // } else {
+    //     signStatus = "Zero";
+    // }
+
+    resultElement.textContent = `The number ${num} is ${signStatus}.`;
+    resultElement.style.color = (signStatus === "Positive" ? "green" : signStatus === "Negative" ? "red" : "blue");
+}
+</script>
+</body>
+</html>
